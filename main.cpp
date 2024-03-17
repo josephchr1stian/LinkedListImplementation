@@ -43,8 +43,8 @@
 
         std::cout << "\n\n Iterator Test\n";
         for(auto i : list)
-            std::cout << i;
-        /*std::cout << "\n\n Const Iterator Test\n";
+            std::cout << i << " ";
+        std::cout << "\n\n Const Iterator Test\n";
         for(auto i = list.cbegin(); i != list.cend(); ++i)
         {
             std::cout << *i << " ";
@@ -53,7 +53,7 @@
         for(auto i = list.rbegin(); i != list.rend(); ++i)
         {
             std::cout << *i << " ";
-        }*/
+        }
         return 0;
     }
 

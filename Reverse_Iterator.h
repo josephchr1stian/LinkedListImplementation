@@ -35,6 +35,8 @@ public:
     //dereference, member function that will change the object
     T& operator*();
 
+    T const &operator*(int);
+
     template<typename U>
     friend bool operator==(const Reverse_Iterator<U> & lhs, const Reverse_Iterator<U>& rhs);
 

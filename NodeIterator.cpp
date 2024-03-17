@@ -30,7 +30,7 @@ NodeIterator<T> NodeIterator<T>::operator++(int) {
 template<typename T>
 NodeIterator<T> &NodeIterator<T>::operator--() {
     _current = _current->prev;
-    return this;
+    return *this;
 }
 
 template<typename T>

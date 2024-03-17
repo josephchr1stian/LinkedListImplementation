@@ -183,30 +183,28 @@ template<typename T>
 NodeIterator<T> LinkedList<T>::end() {
     return NodeIterator<T>(nullptr);
 }
-/*
 
 template<typename T>
-const Node<T> *LinkedList<T>::cbegin() {
-    const_iterator = head;
-    return const_iterator;
+const Const_Iterator<T>LinkedList<T>::cbegin()
+{
+
+    return Const_Iterator<T>(head);
 }
 
 template<typename T>
-const Node<T>  * LinkedList<T>::cend() {
-    return nullptr;
+const Const_Iterator<T> LinkedList<T>::cend() {
+    return Const_Iterator<T>(nullptr);
 }
 
 template<typename T>
-Node<T>  * LinkedList<T>::rbegin() {
-    return nullptr;
+Reverse_Iterator<T> LinkedList<T>::rbegin() {
+    return Reverse_Iterator<T>(tail);
 }
 
 template<typename T>
-Node<T>  * LinkedList<T>::rend() {
-    reverse_iterator = head;
-    return reverse_iterator;
+Reverse_Iterator<T> LinkedList<T>::rend() {
+    return Reverse_Iterator<T>(nullptr);
 }
-*/
 
 
 /*template<typename T>

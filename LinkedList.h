@@ -17,8 +17,8 @@ class LinkedList
         {
 private:
     //NodeIterator<T> iterator;
-    Reverse_Iterator<T> const_iterator;
-    Const_Iterator<T> reverse_iterator;
+    //Reverse_Iterator<T> const_iterator;
+    //Const_Iterator<T> reverse_iterator;
     Node<T> * head = nullptr, * tail = nullptr;
     unsigned int listSize = 0;
 
@@ -45,10 +45,10 @@ public:
 
     NodeIterator<T>  begin();
     NodeIterator<T>   end();
-    //Node<T> * cbegin();
-    //Node<T> * cend();
-    //Node<T> * rbegin();
-    //Node<T> *  rend();
+    const Const_Iterator<T>  cbegin();
+    const Const_Iterator<T> cend();
+    Reverse_Iterator<T> rbegin();
+    Reverse_Iterator<T>  rend();
 
 
     /*LinkedList<T>& operator++();
