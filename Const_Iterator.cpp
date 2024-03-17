@@ -11,32 +11,49 @@ Const_Iterator<T>::Const_Iterator() = default;
 template<typename T>
 Const_Iterator<T>::Const_Iterator(Node<T> *current) {
     _current = current;
+}
+
+template<typename T>
+const Const_Iterator<T> &Const_Iterator<T>::operator++() {
+    _current = _current->next;
+    return this;
+}
+
+template<typename T>
+const Const_Iterator<T>  Const_Iterator<T>::operator++(int) {
+   _current = _current->next;
+    return this;
+}
+
+template<typename T>
+const Const_Iterator<T>  &Const_Iterator<T>::operator--() {
+
+    _current = _current->prev;
+    return this;
+}
+
+template<typename T>
+const Const_Iterator<T>  Const_Iterator<T>::operator--(int) {
+    _current = _current->prev;
+    return this;
 
 }
 
 template<typename T>
-Const_Iterator<T> &Const_Iterator<T>::operator++() {
-    return _current->next;
-}
-
-template<typename T>
-Const_Iterator<T>  Const_Iterator<T>::operator++(int) {
-    return _current->prev;
-}
-
-template<typename T>
-Const_Iterator<T>  &Const_Iterator<T>::operator--() {
-    return _current->prev;
-}
-
-template<typename T>
-Const_Iterator<T>  Const_Iterator<T>::operator--(int) {
-    return _current->prev;
-}
-
-template<typename T>
-T &Const_Iterator<T>::operator*() {
+const T &Const_Iterator<T>::operator*() {
     return _current->data;
+}
+
+template<typename T>
+bool operator==(const Const_Iterator<T> & lhs, const Const_Iterator<T>& rhs)
+{
+    return lhs._current = rhs._current;
+}
+
+template<typename T>
+bool operator!=(const Const_Iterator<T> & lhs, const Const_Iterator<T>& rhs)
+{
+    return lhs._current != rhs._current;
 }
 
 #endif

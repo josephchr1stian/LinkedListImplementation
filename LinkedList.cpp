@@ -174,35 +174,89 @@ Node<T> *LinkedList<T>::getTail() {
 }
 
 template<typename T>
-Node<T> *LinkedList<T>::begin() {
-    return head;
+NodeIterator<T> LinkedList<T>::begin() {
+
+    return NodeIterator<T>(head);
 }
 
 template<typename T>
-Node<T> *LinkedList<T>::end() {
+NodeIterator<T> LinkedList<T>::end() {
+    return NodeIterator<T>(nullptr);
+}
+/*
+
+template<typename T>
+const Node<T> *LinkedList<T>::cbegin() {
+    const_iterator = head;
+    return const_iterator;
+}
+
+template<typename T>
+const Node<T>  * LinkedList<T>::cend() {
     return nullptr;
 }
 
 template<typename T>
-Node<T> *LinkedList<T>::cbegin() {
-    return head;
-}
-
-template<typename T>
-Node<T> *LinkedList<T>::cend() {
+Node<T>  * LinkedList<T>::rbegin() {
     return nullptr;
 }
 
 template<typename T>
-Node<T> *LinkedList<T>::rbegin() {
-    return tail;
+Node<T>  * LinkedList<T>::rend() {
+    reverse_iterator = head;
+    return reverse_iterator;
+}
+*/
+
+
+/*template<typename T>
+LinkedList<T> &LinkedList<T>::operator++() {
+    iterator++;
+    const_iterator++;
+    reverse_iterator++;
+    return this;
+}*/
+
+/*template<typename T>
+LinkedList<T> LinkedList<T>::operator++(int) {
+    iterator++;
+    const_iterator++;
+    reverse_iterator++;
+    return this;
 }
 
 template<typename T>
-Node<T> *LinkedList<T>::rend() {
-    return nullptr;
+LinkedList<T> &LinkedList<T>::operator--() {
+    iterator--;
+    const_iterator--;
+    reverse_iterator--;
+    return this;
 }
 
+template<typename T>
+LinkedList<T> LinkedList<T>::operator--(int) {
+    iterator--;
+    const_iterator--;
+    reverse_iterator--;
+    return this;
+}*/
 
+/*template<typename T>
+T &LinkedList<T>::operator*() {
+    return iterator.data;
+}*/
+
+
+/*template<typename T>
+bool operator==(const LinkedList<T> & lhs, const LinkedList<T>& rhs)
+{
+    return lhs._current == rhs._current;
+}
+
+template<typename T>
+bool operator!=(const LinkedList<T> & lhs, const LinkedList<T>& rhs)
+{
+    return lhs._current != rhs._current;
+}*/
 
 #endif

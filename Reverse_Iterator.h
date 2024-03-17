@@ -15,7 +15,7 @@ private:
 public:
 
 
-    Reverse_Iterator()
+    Reverse_Iterator();
 
     Reverse_Iterator(Node<T> * current);
 

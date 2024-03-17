@@ -18,25 +18,27 @@ public:
 
 
     // ++ prefix
-    Const_Iterator& operator++();
+    const Const_Iterator& operator++();
 
     //++Postfix
-    Const_Iterator operator++(int);
+    const Const_Iterator operator++(int);
 
     // -- prefix
-    Const_Iterator& operator--();
+    const Const_Iterator& operator--();
 
     //--Postfix
-    Const_Iterator operator--(int);
+    const Const_Iterator operator--(int);
 
     //dereference, member function that will change the object
-    T& operator*();
+    const T& operator*();
 
     template<typename U>
     friend bool operator==(const Const_Iterator<U> & lhs, const Const_Iterator<U>& rhs);
 
     template<typename U>
     friend bool operator!=(const Const_Iterator<U> & lhs, const Const_Iterator<U>& rhs);
+
+
 
 };
 

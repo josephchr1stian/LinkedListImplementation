@@ -16,14 +16,11 @@ template<typename T>
 class LinkedList
         {
 private:
-    NodeIterator<T> iterator;
+    //NodeIterator<T> iterator;
     Reverse_Iterator<T> const_iterator;
     Const_Iterator<T> reverse_iterator;
-
     Node<T> * head = nullptr, * tail = nullptr;
     unsigned int listSize = 0;
-
-
 
     void addFirstNode(Node<T>*  node);// add node as the first node in the list
     Node<T> * createNode(const T& data); // return a new node with the passed in data;
@@ -46,14 +43,33 @@ public:
     Node<T> *getHead();
     Node<T> *getTail();
 
-    Node<T>* begin();
-    Node<T>* end();
-    Node<T>* cbegin();
-    Node<T>* cend();
-    Node<T>* rbegin();
-    Node<T>* rend();
+    NodeIterator<T>  begin();
+    NodeIterator<T>   end();
+    //Node<T> * cbegin();
+    //Node<T> * cend();
+    //Node<T> * rbegin();
+    //Node<T> *  rend();
 
 
+    /*LinkedList<T>& operator++();
+
+    //++Postfix
+    LinkedList<T> operator++(int);
+
+    // -- prefix
+    LinkedList<T>& operator--();
+
+    //--Postfix
+    LinkedList<T> operator--(int);*/
+
+    //dereference, member function that will change the object
+    /*T& operator*();
+
+    template<typename U>
+    friend bool operator==(const LinkedList<U> & lhs, const LinkedList<U>& rhs);
+
+    template<typename U>
+    friend bool operator!=(const LinkedList<U> & lhs, const LinkedList<U>& rhs);*/
 
     template<typename U> // Our friend is out of the scope, so we use a different typename
     friend std::ostream&  operator<<(std::ostream & out, const LinkedList<U> & list);

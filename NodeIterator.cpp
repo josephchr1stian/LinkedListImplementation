@@ -6,7 +6,7 @@
 #include "NodeIterator.h"
 
 template<typename T>
-NodeIterator<T>::NodeIterator() =default;
+NodeIterator<T>::NodeIterator() = default;
 
 template<typename T>
 NodeIterator<T>::NodeIterator(Node<T> *current) {
@@ -16,15 +16,15 @@ NodeIterator<T>::NodeIterator(Node<T> *current) {
 
 template<typename T>
 NodeIterator<T> &NodeIterator<T>::operator++() {
-    _current = _current->next;
-    return this;
+    _current = _current->next; // Advance our pointer
+    return *this; // Return a dereferenced this, which is a reference, which is a pointer.
 }
 
 template<typename T>
 NodeIterator<T> NodeIterator<T>::operator++(int) {
-    if (_current->next != nullptr)
-        _current = _current->next;
-    return this;
+    NodeIterator<T> temp = *this; // Create a copy of our iterator
+    _current = _current->next; // Increment our iterator
+    return temp; //Return the pre incremented copy
 }
 
 template<typename T>
@@ -35,13 +35,19 @@ NodeIterator<T> &NodeIterator<T>::operator--() {
 
 template<typename T>
 NodeIterator<T> NodeIterator<T>::operator--(int) {
-    if (_current->prev != nullptr)
-        _current = _current->prev;
-    return this;
+    NodeIterator<T> temp = *this; // Create a copy of our iterator
+    _current = _current->prev; // decrement our iterator
+    return temp; //Return the pre incremented copy
 }
 
 template<typename T>
-T &NodeIterator<T>::operator*() {
+T& NodeIterator<T>::operator*() {
+    return _current->data;
+}
+
+template<typename T>
+T const & NodeIterator<T>::operator*(int)
+        {
     return _current->data;
 }
 

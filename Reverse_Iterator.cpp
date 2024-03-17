@@ -17,28 +17,44 @@ Reverse_Iterator<T>::Reverse_Iterator(Node<T> *current) {
 }
 
 template<typename T>
-Reverse_Iterator &Reverse_Iterator<T>::operator++() {
-    return _current->next;
+Reverse_Iterator<T> &Reverse_Iterator<T>::operator++() {
+    _current = _current->prev;
+    return this;
 }
 
 template<typename T>
-Reverse_Iterator Reverse_Iterator<T>::operator++(int) {
-    return Reverse_Iterator();
+Reverse_Iterator<T> Reverse_Iterator<T>::operator++(int) {
+    _current = _current->prev;
+    return this;
 }
 
 template<typename T>
-Reverse_Iterator &Reverse_Iterator<T>::operator--() {
-    return <#initializer#>;
+Reverse_Iterator<T> &Reverse_Iterator<T>::operator--() {
+    _current = _current->next;
+    return this;
 }
 
 template<typename T>
-Reverse_Iterator Reverse_Iterator<T>::operator--(int) {
-    return Reverse_Iterator();
+Reverse_Iterator<T> Reverse_Iterator<T>::operator--(int) {
+    _current = _current->next;
+    return this;
 }
 
 template<typename T>
 T &Reverse_Iterator<T>::operator*() {
-    return <#initializer#>;
+    return _current->data;
+}
+
+template<typename T>
+bool operator==(const Reverse_Iterator<T> & lhs, const Reverse_Iterator<T>& rhs)
+{
+    return lhs._current = rhs._current;
+}
+
+template<typename T>
+bool operator!=(const Reverse_Iterator<T> & lhs, const Reverse_Iterator<T>& rhs)
+{
+    return lhs._current != rhs._current;
 }
 
 #endif
