@@ -153,4 +153,56 @@ std::ostream & operator<<(std::ostream & out, const LinkedList<T>& list)
     return out;
 }
 
+template<typename T>
+const Node<T> *LinkedList<T>::getHead() const {
+    return head;
+}
+
+template<typename T>
+const Node<T> *LinkedList<T>::getTail() const {
+    return tail;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::getHead() {
+    return head;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::getTail() {
+    return tail;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::begin() {
+    return head;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::end() {
+    return nullptr;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::cbegin() {
+    return head;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::cend() {
+    return nullptr;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::rbegin() {
+    return tail;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::rend() {
+    return nullptr;
+}
+
+
+
 #endif

@@ -6,13 +6,25 @@
 #define LINKED_LIST_IMPLEMENTATION_LINKEDLIST_H
 #include "Node.h"
 #include <iostream>
+#include "NodeIterator.h"
+#include "Reverse_Iterator.h"
+#include "Const_Iterator.h"
+
 
 
 template<typename T>
-class LinkedList {
+class LinkedList
+        {
 private:
+    NodeIterator<T> iterator;
+    Reverse_Iterator<T> const_iterator;
+    Const_Iterator<T> reverse_iterator;
+
     Node<T> * head = nullptr, * tail = nullptr;
     unsigned int listSize = 0;
+
+
+
     void addFirstNode(Node<T>*  node);// add node as the first node in the list
     Node<T> * createNode(const T& data); // return a new node with the passed in data;
     void push_front(Node<T> * node); /// Add node to the front of the list
@@ -28,6 +40,19 @@ public:
     void remove(const T& item);
     void pop_back();
     void pop_front();
+
+    const Node<T> *getHead() const;
+    const Node<T> *getTail() const;
+    Node<T> *getHead();
+    Node<T> *getTail();
+
+    Node<T>* begin();
+    Node<T>* end();
+    Node<T>* cbegin();
+    Node<T>* cend();
+    Node<T>* rbegin();
+    Node<T>* rend();
+
 
 
     template<typename U> // Our friend is out of the scope, so we use a different typename
